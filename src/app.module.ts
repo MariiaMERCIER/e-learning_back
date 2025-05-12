@@ -6,9 +6,10 @@ import { SubjectModule } from './subject/subject.module';
 import { LevelModule } from './level/level.module';
 import { BddService } from './bdd/bdd.service';
 import { BddModule } from './bdd/bdd.module';
+import { ConfigModule } from './config/config.module';
 
 @Module({
-  imports: [SubjectModule, LevelModule, BddModule],
+  imports: [SubjectModule, LevelModule, BddModule, ConfigModule],
   controllers: [AppController],
   providers: [AppService],
 })
