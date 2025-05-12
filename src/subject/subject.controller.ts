@@ -7,9 +7,15 @@ import { LevelSubject } from 'src/level/level';
 @Controller('subject')
 export class SubjectController {
   constructor(private readonly subjectService: SubjectService) {}
+
   @Get()
   findAll(): Subject[] {
     return SUBJECTS;
+  }
+
+  @Get('favorite')
+  findFavorite(): string {
+    return this.subjectService.findFavorite();
   }
 
   @Get(':id')

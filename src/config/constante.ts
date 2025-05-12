@@ -1,0 +1,1 @@
+export const TOKEN_CONFIG_OPTIONS = 'CONFIG_OPTIONS';

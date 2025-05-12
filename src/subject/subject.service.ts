@@ -3,14 +3,15 @@ import { PostSubject, Subject } from './subject';
 
 import { BddService } from 'src/bdd/bdd.service';
 import { Level, LevelSubject } from 'src/level/level';
-import { LevelService } from 'src/level/level.service';
 import { TOKEN_LEVELS } from 'src/bdd/constante';
+import { ConfigService } from 'src/config/config.service';
 
 @Injectable()
 export class SubjectService {
   constructor(
     private bdd: BddService,
     @Inject(TOKEN_LEVELS) private bddLevels: Level[],
+    private configService: ConfigService,
   ) {}
   findAll(): Subject[] {
     return this.bdd.get<Subject>('subjects');
@@ -37,5 +38,9 @@ export class SubjectService {
       level,
       subject,
     }));
+  }
+
+  findFavorite(): string {
+    return this.configService.get('FAVORITE_SUBJECT');
   }
 }
